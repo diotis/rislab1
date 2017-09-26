@@ -149,7 +149,30 @@ namespace sharptestlab1
                         }
                     case "5":
                         {
+                            Console.WriteLine("Введите номер записи для редактирования:");
+                            int num = Convert.ToInt32(Console.ReadLine());
+                            num--;
+                            if (num > 0 && num < list.Count)
+                            {
+                                Console.WriteLine("Редактируемая запись: "+list.ElementAt(num).show());
+                                Console.WriteLine("Vvedite rajon, porodu dereva i kolichestvo:");
+                                String region = Console.ReadLine();
+                                String tkind = Console.ReadLine();
+                                long quant = System.Int64.Parse(Console.ReadLine());
+                                list.ElementAt(num).data(region,tkind,quant);
+                                fstr.Close();
+                                Serialize();
+                                newList = true;
+                            }
+                            Console.ReadLine();
+                            break;
+                        }
+                    case "6":
+                        {
+                            list.Sort(delegate (Program us1, Program us2)
+                            { return us1.region.CompareTo(us2.region); });
 
+                            Console.ReadLine();
                             break;
                         }
                 }
