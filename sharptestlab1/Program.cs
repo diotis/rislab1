@@ -183,7 +183,7 @@ namespace sharptestlab1
                             }
                         case "4":
                             {
-                                Console.WriteLine("Введите марку автомобиля, модель и год выпуска:");
+                                Console.WriteLine("Введите номер записи для удаления");
                                 try
                                 {
                                     int num = Convert.ToInt32(Console.ReadLine());
@@ -197,7 +197,7 @@ namespace sharptestlab1
                                         throw new Exception("Введенное число больше размера списка");
                                     }
                                     num--;
-                                    if (num > 0 && num < list.Count)
+                                    if (num >= 0 && num < list.Count)
                                     {
                                         list.RemoveAt(num);
                                         fstr.Close();
@@ -266,7 +266,7 @@ namespace sharptestlab1
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Ошибка: " + ex.Message);
+                Console.WriteLine("Ошибка: " + ex.Message); 
             }
         }
     }
